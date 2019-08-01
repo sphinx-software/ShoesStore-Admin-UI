@@ -70,9 +70,9 @@ export default {
           icon: 'icon-puzzle',
         },
         {
-          name: 'CollectionForm',
-          url: '/base/collections',
-          icon: 'icon-puzzle'
+          name: 'card',
+          url: '/base/cards',
+          icon: 'icon-puzzle',
         },
         {
           name: 'Carousels',
@@ -176,6 +176,11 @@ export default {
     {
       name: 'Charts',
       url: '/charts',
+      icon: 'icon-pie-chart',
+    },
+    {
+      name: 'Products',
+      url: '/products',
       icon: 'icon-pie-chart',
     },
     {
