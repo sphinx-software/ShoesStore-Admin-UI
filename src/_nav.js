@@ -47,7 +47,7 @@ export default {
           icon: 'icon-puzzle',
         },
         {
-          name: 'Cards',
+          name: 'card',
           url: '/base/cards',
           icon: 'icon-puzzle',
         },
@@ -153,6 +153,11 @@ export default {
     {
       name: 'Charts',
       url: '/charts',
+      icon: 'icon-pie-chart',
+    },
+    {
+      name: 'Products',
+      url: '/products',
       icon: 'icon-pie-chart',
     },
     {

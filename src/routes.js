@@ -2,6 +2,11 @@ import React from 'react';
 
 const Breadcrumbs = React.lazy(() => import('./views/Base/Breadcrumbs'));
 const Cards = React.lazy(() => import('./views/Base/Cards'));
+const Product = React.lazy(() => import('./views/Products/Product'));
+const ProductForm = React.lazy(() => import('./views/Products/ProductForm'));
+
+
+
 const Carousels = React.lazy(() => import('./views/Base/Carousels'));
 const Collapses = React.lazy(() => import('./views/Base/Collapses'));
 const Dropdowns = React.lazy(() => import('./views/Base/Dropdowns'));
@@ -35,6 +40,8 @@ const Typography = React.lazy(() => import('./views/Theme/Typography'));
 const Widgets = React.lazy(() => import('./views/Widgets/Widgets'));
 const Users = React.lazy(() => import('./views/Users/Users'));
 const User = React.lazy(() => import('./views/Users/User'));
+const Products = React.lazy(() => import('./views/Products/Products'));
+
 
 // https://github.com/ReactTraining/react-router/tree/master/packages/react-router-config
 const routes = [
@@ -78,7 +85,12 @@ const routes = [
   { path: '/widgets', name: 'Widgets', component: Widgets },
   { path: '/charts', name: 'Charts', component: Charts },
   { path: '/users', exact: true,  name: 'Users', component: Users },
-  { path: '/users/:id', exact: true, name: 'User Details', component: User },
+  { path: '/profiles/:id', exact: true, name: 'User Details', component: User },
+  { path: '/products/', exact: true, name: 'model', component: Products },
+  { path: '/products/:id', exact: true, name: 'model', component: Product },
+  { path: '/products/add', exact: true, name: 'model', component: ProductForm },
+
+
 ];
 
 export default routes;

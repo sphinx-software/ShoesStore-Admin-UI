@@ -3,7 +3,7 @@ import { Badge, Card, CardBody, CardFooter, CardHeader, Col, Row, Collapse, Fade
 import { AppSwitch } from '@coreui/react'
 import {Link} from "react-router-dom";
 
-class Cards extends Component {
+class Products extends Component {
   constructor(props) {
     super(props);
 
@@ -27,19 +27,28 @@ class Cards extends Component {
   render() {
     return (
       <div className="animated fadeIn">
-        <Row>
+        <div className={'row justify-content-between col-md-10 mx-auto'}>
+          <Link  className={'btn btn-info col-md-4'} to="/products/add"> <button  className={'btn'}> Add Product </button>
+          </Link>
+          <button className={'btn btn-danger col-md-4'}> Product in trash </button>
+
+        </div>
+        <Row className={'mt-3'}>
           <Col xs="12" sm="6" md="4">
             <Card>
-              <CardHeader>
+              <CardHeader className={'d-inline-block'}>
 
-                <Link to="/models/1">Giày thể thao</Link>
+                <span>Giày thể thao</span>
+
                 <div className="card-header-actions">
-                  <AppSwitch className={'float-right mb-0'} label color={'info'} defaultChecked size={'lg'}/>
+                  <Link to="/products/1"><i className="cui-note icons font-2xl"></i>
+                  </Link>
+                  <i className={"cui-trash icons font-2xl ml-2"}></i>
+
                 </div>
               </CardHeader>
               <CardBody>
                 <p><strong>id: </strong><span>1</span></p>
-                <p><strong>Name: </strong><span>Giat tay</span></p>
                 <p><strong>Collection: </strong><span>Giay nam</span></p>
                 <p><strong>price: </strong><span>300 000</span></p>
                 <p><strong>Status: </strong><span>in stock</span></p>
@@ -55,4 +64,4 @@ class Cards extends Component {
   }
 }
 
-export default Cards;
+export default Products;
