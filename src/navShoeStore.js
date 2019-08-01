@@ -37,29 +37,6 @@ export default {
       },
     },
     {
-      name: 'Collections',
-      url: '/collections',
-      icon: 'icon-puzzle',
-      children: [
-        {
-          name: 'Add Collection',
-          url: '/collections/add',
-          icon: 'icon-puzzle',
-        },
-        {
-          name: 'Manage Collections',
-          url: '/collections/collections',
-          icon: 'icon-puzzle',
-        },
-        {
-          name: 'Collections in Trash',
-          url: '/collections/trash',
-          icon: 'icon-puzzle',
-        },
-
-      ],
-    },
-    {
       name: 'Base',
       url: '/base',
       icon: 'icon-puzzle',
@@ -70,15 +47,9 @@ export default {
           icon: 'icon-puzzle',
         },
         {
-<<<<<<< HEAD
-          name: 'card',
+          name: 'Cards',
           url: '/base/cards',
           icon: 'icon-puzzle',
-=======
-          name: 'CollectionForm',
-          url: '/base/collections',
-          icon: 'icon-puzzle'
->>>>>>> 52a6a92b55fb355d8d4d3a2e4be1955d8c9a71ca
         },
         {
           name: 'Carousels',
@@ -106,7 +77,7 @@ export default {
           icon: 'icon-puzzle',
         },
         {
-          name: 'CollectionForm groups',
+          name: 'List groups',
           url: '/base/list-groups',
           icon: 'icon-puzzle',
         },
@@ -182,11 +153,6 @@ export default {
     {
       name: 'Charts',
       url: '/charts',
-      icon: 'icon-pie-chart',
-    },
-    {
-      name: 'Products',
-      url: '/products',
       icon: 'icon-pie-chart',
     },
     {

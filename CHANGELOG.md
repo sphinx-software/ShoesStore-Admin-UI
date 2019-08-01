@@ -207,7 +207,7 @@ It's important to use the same instance of the `react-router-dom v5` library wit
     }
   ]
   ```
-- fix(Cards): `card-header-actions` added to `CardHeader` for `rtl` support
+- fix(CollectionForm): `card-header-actions` added to `CardHeader` for `rtl` support
 - feat(Dashboard): new `Suspense` example with Widget03
 - chore: update `@coreui/coreui` to `2.1.0`
 - chore: update `@coreui/react` to `2.1.0`
@@ -313,7 +313,7 @@ In most cases bumping the `react-scripts` version in `package.json` and running 
 
 ##### `v2.0.4`
 - feat(Forms): FormFeedback valid, toggleFade
-- refactor(Cards): toggleFade
+- refactor(CollectionForm): toggleFade
 - chore: update `@coreui/coreui` to `2.0.2`,
 - chore: update `@coreui/react` to `2.0.1`,
 - chore: update `classnames` to `2.2.6`,
