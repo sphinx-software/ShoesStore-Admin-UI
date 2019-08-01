@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Badge, Card, CardBody, CardFooter, CardHeader, Col, Row, Collapse, Fade } from 'reactstrap';
+import { Badge, Card, CardBody, CardFooter, CardHeader, Col, Row } from 'reactstrap';
 import { AppSwitch } from '@coreui/react'
 import {Link} from "react-router-dom";
 
@@ -47,7 +47,142 @@ class Cards extends Component {
               </CardBody>
             </Card>
           </Col>
-
+          <Col xs="12" sm="6" md="4">
+            <Card className="card-accent-secondary">
+              <CardHeader>
+                Card with accent
+              </CardHeader>
+              <CardBody>
+                Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut
+                laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation
+                ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.
+              </CardBody>
+            </Card>
+          </Col>
+          <Col xs="12" sm="6" md="4">
+            <Card className="card-accent-success">
+              <CardHeader>
+                Card with accent
+              </CardHeader>
+              <CardBody>
+                Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut
+                laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation
+                ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.
+              </CardBody>
+            </Card>
+          </Col>
+          <Col xs="12" sm="6" md="4">
+            <Card className="card-accent-info">
+              <CardHeader>
+                Card with accent
+              </CardHeader>
+              <CardBody>
+                Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut
+                laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation
+                ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.
+              </CardBody>
+            </Card>
+          </Col>
+          <Col xs="12" sm="6" md="4">
+            <Card className="card-accent-warning">
+              <CardHeader>
+                Card with accent
+              </CardHeader>
+              <CardBody>
+                Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut
+                laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation
+                ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.
+              </CardBody>
+            </Card>
+          </Col>
+          <Col xs="12" sm="6" md="4">
+            <Card className="card-accent-danger">
+              <CardHeader>
+                Card with accent
+              </CardHeader>
+              <CardBody>
+                Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut
+                laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation
+                ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.
+              </CardBody>
+            </Card>
+          </Col>
+        </Row>
+        <Row>
+          <Col xs="12" sm="6" md="4">
+            <Card className="text-white bg-primary text-center">
+              <CardBody>
+                <blockquote className="card-bodyquote">
+                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
+                  <footer>Someone famous in <cite title="Source Title">Source Title</cite></footer>
+                </blockquote>
+              </CardBody>
+            </Card>
+          </Col>
+          <Col xs="12" sm="6" md="4">
+            <Card className="text-white bg-success text-center">
+              <CardBody>
+                <blockquote className="card-bodyquote">
+                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
+                  <footer>Someone famous in <cite title="Source Title">Source Title</cite></footer>
+                </blockquote>
+              </CardBody>
+            </Card>
+          </Col>
+          <Col xs="12" sm="6" md="4">
+            <Card className="text-white bg-info text-center">
+              <CardBody>
+                <blockquote className="card-bodyquote">
+                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
+                  <footer>Someone famous in <cite title="Source Title">Source Title</cite></footer>
+                </blockquote>
+              </CardBody>
+            </Card>
+          </Col>
+          <Col xs="12" sm="6" md="4">
+            <Card className="text-white bg-warning text-center">
+              <CardBody>
+                <blockquote className="card-bodyquote">
+                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
+                  <footer>Someone famous in <cite title="Source Title">Source Title</cite></footer>
+                </blockquote>
+              </CardBody>
+            </Card>
+          </Col>
+          <Col xs="12" sm="6" md="4">
+            <Card className="text-white bg-danger text-center">
+              <CardBody>
+                <blockquote className="card-bodyquote">
+                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
+                  <footer>Someone famous in <cite title="Source Title">Source Title</cite></footer>
+                </blockquote>
+              </CardBody>
+            </Card>
+          </Col>
+          <Col xs="12" sm="6" md="4">
+            <Card className="text-white bg-primary text-center">
+              <CardBody>
+                <blockquote className="card-bodyquote">
+                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
+                  <footer>Someone famous in <cite title="Source Title">Source Title</cite></footer>
+                </blockquote>
+              </CardBody>
+            </Card>
+          </Col>
+        </Row>
+        <Row>
+          <Col xs="12" sm="6" md="4">
+            <Card className="text-white bg-primary">
+              <CardHeader>
+                Card title
+              </CardHeader>
+              <CardBody>
+                Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut
+                laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation
+                ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.
+              </CardBody>
+            </Card>
+          </Col>
         </Row>
 
       </div>

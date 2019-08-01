@@ -17,6 +17,9 @@ import Tabs from './Tabs';
 import Tooltips from './Tooltips';
 
 export {
-  Breadcrumbs, Cards, Carousels, Collapses, Dropdowns, Forms, Jumbotrons, ListGroups, Navbars, Navs, Popovers, ProgressBar, Switches, Tables, Tabs, Tooltips, Paginations
+  Cards, Carousels, Collapses,
+  Dropdowns, Forms, Jumbotrons, ListGroups,
+  Navbars, Navs, Popovers, ProgressBar,
+  Switches, Tables, Tabs, Tooltips, Paginations
 };
 
