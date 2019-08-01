@@ -70,9 +70,9 @@ export default {
           icon: 'icon-puzzle',
         },
         {
-          name: 'CollectionForm',
-          url: '/base/collections',
-          icon: 'icon-puzzle'
+          name: 'card',
+          url: '/base/cards',
+          icon: 'icon-puzzle',
         },
         {
           name: 'Carousels',
@@ -179,6 +179,11 @@ export default {
       icon: 'icon-pie-chart',
     },
     {
+      name: 'Products',
+      url: '/products',
+      icon: 'icon-pie-chart',
+    },
+    {
       name: 'Icons',
       url: '/icons',
       icon: 'icon-star',
@@ -229,7 +234,7 @@ export default {
           icon: 'icon-bell',
         },
         {
-          name: 'Modals',
+          name: 'Modals',cards
           url: '/notifications/modals',
           icon: 'icon-bell',
         },
@@ -251,7 +256,7 @@ export default {
       title: true,
       name: 'Extras',
     },
-    {
+    {cards
       name: 'Pages',
       url: '/pages',
       icon: 'icon-star',
