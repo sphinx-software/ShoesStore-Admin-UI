@@ -1,6 +1,10 @@
 import React from 'react';
 
 const Breadcrumbs = React.lazy(() => import('./views/Base/Breadcrumbs'));
+const Collections = React.lazy(() => import('./views/Collections/Collections'));
+const CollectionForm = React.lazy(() => import('./views/Collections/AddCollection'));
+const CollectionsInTrash = React.lazy(() => import('./views/Collections/CollectionsInTrash'));
+const CollectionUpdate = React.lazy(() => import('./views/Collections/Collections/CollectionUpdate'));
 const Cards = React.lazy(() => import('./views/Base/Cards'));
 const Product = React.lazy(() => import('./views/Products/Product'));
 const ProductForm = React.lazy(() => import('./views/Products/ProductForm'));
@@ -50,18 +54,26 @@ const routes = [
   { path: '/theme', exact: true, name: 'Theme', component: Colors },
   { path: '/theme/colors', name: 'Colors', component: Colors },
   { path: '/theme/typography', name: 'Typography', component: Typography },
+  { path: '/collections', exact: true, name: 'Collections', component: Collections },
+  { path: '/collections/collections', name: 'Manage', component: Collections },
+  { path: '/collections/add', name: 'Add', component: CollectionForm },
+  { path: '/collections/trash', name: 'In Trash', component: CollectionsInTrash },
+  { path: '/collections/edit/:id', name: 'Update', component: CollectionUpdate },
+
+
   { path: '/base', exact: true, name: 'Base', component: Cards },
   { path: '/base/cards', name: 'Cards', component: Cards },
   { path: '/base/forms', name: 'Forms', component: Forms },
   { path: '/base/switches', name: 'Switches', component: Switches },
+  { path: '/base/breadcrumbs', name: 'Breadcrumbs', component: Breadcrumbs },
   { path: '/base/tables', name: 'Tables', component: Tables },
   { path: '/base/tabs', name: 'Tabs', component: Tabs },
-  { path: '/base/breadcrumbs', name: 'Breadcrumbs', component: Breadcrumbs },
+  { path: '/base/collections', name: 'CollectionForm', component: Collections },
   { path: '/base/carousels', name: 'Carousel', component: Carousels },
   { path: '/base/collapses', name: 'Collapse', component: Collapses },
   { path: '/base/dropdowns', name: 'Dropdowns', component: Dropdowns },
   { path: '/base/jumbotrons', name: 'Jumbotrons', component: Jumbotrons },
-  { path: '/base/list-groups', name: 'List Groups', component: ListGroups },
+  { path: '/base/list-groups', name: 'CollectionForm Groups', component: ListGroups },
   { path: '/base/navbars', name: 'Navbars', component: Navbars },
   { path: '/base/navs', name: 'Navs', component: Navs },
   { path: '/base/paginations', name: 'Paginations', component: Paginations },

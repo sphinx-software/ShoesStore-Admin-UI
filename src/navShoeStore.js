@@ -37,29 +37,6 @@ export default {
       },
     },
     {
-      name: 'Collections',
-      url: '/collections',
-      icon: 'icon-puzzle',
-      children: [
-        {
-          name: 'Add Collection',
-          url: '/collections/add',
-          icon: 'icon-puzzle',
-        },
-        {
-          name: 'Manage Collections',
-          url: '/collections/collections',
-          icon: 'icon-puzzle',
-        },
-        {
-          name: 'Collections in Trash',
-          url: '/collections/trash',
-          icon: 'icon-puzzle',
-        },
-
-      ],
-    },
-    {
       name: 'Base',
       url: '/base',
       icon: 'icon-puzzle',
@@ -70,7 +47,7 @@ export default {
           icon: 'icon-puzzle',
         },
         {
-          name: 'card',
+          name: 'Cards',
           url: '/base/cards',
           icon: 'icon-puzzle',
         },
@@ -100,7 +77,7 @@ export default {
           icon: 'icon-puzzle',
         },
         {
-          name: 'CollectionForm groups',
+          name: 'List groups',
           url: '/base/list-groups',
           icon: 'icon-puzzle',
         },
@@ -179,11 +156,6 @@ export default {
       icon: 'icon-pie-chart',
     },
     {
-      name: 'Products',
-      url: '/products',
-      icon: 'icon-pie-chart',
-    },
-    {
       name: 'Icons',
       url: '/icons',
       icon: 'icon-star',
@@ -234,7 +206,7 @@ export default {
           icon: 'icon-bell',
         },
         {
-          name: 'Modals',cards
+          name: 'Modals',
           url: '/notifications/modals',
           icon: 'icon-bell',
         },
@@ -256,7 +228,7 @@ export default {
       title: true,
       name: 'Extras',
     },
-    {cards
+    {
       name: 'Pages',
       url: '/pages',
       icon: 'icon-star',
