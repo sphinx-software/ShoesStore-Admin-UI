@@ -48,8 +48,11 @@ class Cards extends Component {
             </Card>
           </Col>
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 =======
+=======
+>>>>>>> 4a9b49dd7d07583341ef41be9e5be78f5a3ad388
           <Col xs="12" sm="6" md="4">
             <Card className="card-accent-secondary">
               <CardHeader>
@@ -186,7 +189,10 @@ class Cards extends Component {
               </CardBody>
             </Card>
           </Col>
+<<<<<<< HEAD
 >>>>>>> 52a6a92b55fb355d8d4d3a2e4be1955d8c9a71ca
+=======
+>>>>>>> 4a9b49dd7d07583341ef41be9e5be78f5a3ad388
         </Row>
 
       </div>

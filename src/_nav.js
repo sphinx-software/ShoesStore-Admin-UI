@@ -70,15 +70,9 @@ export default {
           icon: 'icon-puzzle',
         },
         {
-<<<<<<< HEAD
           name: 'card',
           url: '/base/cards',
           icon: 'icon-puzzle',
-=======
-          name: 'CollectionForm',
-          url: '/base/collections',
-          icon: 'icon-puzzle'
->>>>>>> 52a6a92b55fb355d8d4d3a2e4be1955d8c9a71ca
         },
         {
           name: 'Carousels',
@@ -242,73 +236,73 @@ export default {
         {
           name: 'Modals',
           url: '/notifications/modals',
-          icon: 'icon-bell',
-        },
-      ],
-    },
-    {
-      name: 'Widgets',
-      url: '/widgets',
-      icon: 'icon-calculator',
-      badge: {
-        variant: 'info',
-        text: 'NEW',
-      },
-    },
-    {
-      divider: true,
-    },
-    {
-      title: true,
-      name: 'Extras',
-    },
-    {
-      name: 'Pages',
-      url: '/pages',
-      icon: 'icon-star',
-      children: [
-        {
-          name: 'Login',
-          url: '/login',
-          icon: 'icon-star',
-        },
-        {
-          name: 'Register',
-          url: '/register',
-          icon: 'icon-star',
-        },
-        {
-          name: 'Error 404',
-          url: '/404',
-          icon: 'icon-star',
-        },
-        {
-          name: 'Error 500',
-          url: '/500',
-          icon: 'icon-star',
-        },
-      ],
-    },
-    {
-      name: 'Disabled',
-      url: '/dashboard',
-      icon: 'icon-ban',
-      attributes: { disabled: true },
-    },
-    {
-      name: 'Download CoreUI',
-      url: 'https://coreui.io/react/',
-      icon: 'icon-cloud-download',
-      class: 'mt-auto',
-      variant: 'success',
-      attributes: { target: '_blank', rel: "noopener" },
-    },
-    {
-      name: 'Try CoreUI PRO',
-      url: 'https://coreui.io/pro/react/',
-      icon: 'icon-layers',
-      variant: 'danger',
-      attributes: { target: '_blank', rel: "noopener" },
-    },
-  ],
+  icon: 'icon-bell',
+},
+],
+},
+{
+  name: 'Widgets',
+    url: '/widgets',
+  icon: 'icon-calculator',
+  badge: {
+  variant: 'info',
+    text: 'NEW',
+},
+},
+{
+  divider: true,
+},
+{
+  title: true,
+    name: 'Extras',
+},
+{
+  name: 'Pages',
+    url: '/pages',
+  icon: 'icon-star',
+  children: [
+  {
+    name: 'Login',
+    url: '/login',
+    icon: 'icon-star',
+  },
+  {
+    name: 'Register',
+    url: '/register',
+    icon: 'icon-star',
+  },
+  {
+    name: 'Error 404',
+    url: '/404',
+    icon: 'icon-star',
+  },
+  {
+    name: 'Error 500',
+    url: '/500',
+    icon: 'icon-star',
+  },
+],
+},
+{
+  name: 'Disabled',
+    url: '/dashboard',
+  icon: 'icon-ban',
+  attributes: { disabled: true },
+},
+{
+  name: 'Download CoreUI',
+    url: 'https://coreui.io/react/',
+  icon: 'icon-cloud-download',
+  class: 'mt-auto',
+  variant: 'success',
+  attributes: { target: '_blank', rel: "noopener" },
+},
+{
+  name: 'Try CoreUI PRO',
+    url: 'https://coreui.io/pro/react/',
+  icon: 'icon-layers',
+  variant: 'danger',
+  attributes: { target: '_blank', rel: "noopener" },
+},
+],
 };
