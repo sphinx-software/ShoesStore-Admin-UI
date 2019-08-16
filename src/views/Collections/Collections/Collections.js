@@ -31,7 +31,27 @@ class Collections extends Component {
       fadeIn: [],
       timeout: 300,
       url: process.env.REACT_APP_API_URL + 'collections/',
-      collections: [],
+      collections: [
+        {
+          _links: {
+            self: {
+              href: "/api/v1/collections/1"
+            }
+          },
+          data: {
+            id: 1,
+            parentId: null,
+            name: "Chief Applications Producer",
+            slug: "chief-applications-producer",
+            relatedSlugs: [
+              "product-paradigm-orchestrator"
+            ],
+            createdAt: "2019-07-23T04:27:46.150Z",
+            updatedAt: "2019-07-23T04:27:46.150Z",
+            deletedAt: null
+          }
+        }
+      ],
 
     };
   }
@@ -50,7 +70,8 @@ class Collections extends Component {
 
   toggleDangerConfirm(index) {
     const fadeIn = this.state.fadeIn;
-    fadeIn[index] = !fadeIn[index];
+    fadeIn[index] = false;
+    console.log(fadeIn);
     this.setState({
       danger: !this.state.danger,
       collapse: !this.state.collapse,
@@ -74,6 +95,9 @@ class Collections extends Component {
 
   async componentDidMount() {
     await this.getCollections();
+    const fadeIn = this.state.fadeIn;
+    fadeIn[0] = true;
+    this.setState({ fadeIn })
   }
 
 
@@ -101,7 +125,7 @@ class Collections extends Component {
             collections.map((tmpCollection, index) => {
               const collection = tmpCollection.data;
 
-              // console.log(collection);
+              console.log(this.state.fadeIn);
               return(<Col xs="12" sm="6" md="4" key={index}>
                 <Fade timeout={this.state.timeout} in={this.state.fadeIn[index]}>
                   <Card>
