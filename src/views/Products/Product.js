@@ -1,28 +1,18 @@
 import React, { Component } from 'react';
+import                           '../ui/product/product.css';
 
 
 class Image extends Component {
 
   state = {
     url: ''
-  }
+  };
 
 
   render() {
-
-    let style = {
-      backgroundImage    : 'url(' + this.state.url + ')',
-      width              : 200 + "px",
-      height             : 200 + "px",
-      border             : '1px solid',
-      backgroundSize     : 'contain',
-      backgroundPosition : 'center',
-      backgroundRepeat   : 'no-repeat'
-    }
-
     return (
       <div className={'float-left mt-3 mr-6 justify-content-between'}>
-        <div style={style}>
+        <div className="product" style={{ backgroundImage: 'url(' + this.state.url + ')' }}>
         </div>
         <input className={'w-75'} type="file" accept="image/x-png,image/gif,image/jpeg" onChange={(event) => {
           this.setState({
@@ -68,21 +58,24 @@ class Variations extends Component {
 export default class Product extends Component {
 
   state = {
-    Variations: [],
+    variations: [],
   };
 
 
   removeVariation(index) {
-    const variations = this.state.Variations;
+    const { variations } = this.state;
     variations.splice(index, 1)
     this.setState({
-      Variations: variations
+      variations
     })
   };
 
   render() {
+
+    const { variations } = this.state;
+
     return (
-      <div className={'row form-group '}>
+      <div className={'row form-group'}>
         <div className={'col-md-6'}>
           <p><strong>Name:</strong><input type="text" className={'form-control'}/>
           </p>
@@ -95,7 +88,7 @@ export default class Product extends Component {
           <p><strong>Description:</strong><textarea className={'form-control'}/>
           </p>
           {
-            this.state.Variations.map((item, index) => {
+            variations.map((item, index) => {
               return (
                 <div className={'row d-inline-block '}>
                   <div className={'float-left'}>

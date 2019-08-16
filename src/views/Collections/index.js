@@ -1,4 +1,4 @@
-import Collections from './Collections';
+import Collections    from './Collections';
 import CollectionForm from './CollectionForm';
 
 export {
