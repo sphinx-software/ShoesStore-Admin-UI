@@ -102,11 +102,11 @@ class Forms extends Component {
                              onChange={ () => this.onChangeParentCollection() }
                              value={parent_collection}>
                         <option>Please select</option>
-                        {
-                          collections.map((collection, index) => {
-                            return(<option key={index} value={collection.data.id}>{collection.data.name}</option>)
-                          })
-                        }
+                          {
+                            collections.map((collection, index) => {
+                              return(<option key={index} value={collection.data.id}>{collection.data.name}</option>)
+                            })
+                          }
                       </Input>
                     </Col>
                   </FormGroup>

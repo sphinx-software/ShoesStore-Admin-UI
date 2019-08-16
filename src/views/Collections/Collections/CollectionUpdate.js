@@ -7,12 +7,12 @@ export default class CollectionUpdate extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      url               : process.env.REACT_APP_API_URL + 'collections/',
-      collections       : [],
-      collection_name   : '',
-      parent_collection : '',
-      related_slug      : '',
-      collection_detail : ''
+        url               : process.env.REACT_APP_API_URL + 'collections/',
+        collections       : [],
+        collection_name   : '',
+        parent_collection : '',
+        related_slug      : '',
+        collection_detail : ''
     };
   }
 
@@ -46,7 +46,7 @@ export default class CollectionUpdate extends Component {
   async getCollections() {
     await fetch(this.state.url)
       .then(res => res.json())
-      .then(res => this.setState({ collections: res.Collections } ));
+      .then(res => this.setState({ collections: res.Collections }));
   }
 
 
@@ -84,7 +84,10 @@ export default class CollectionUpdate extends Component {
                       <Label htmlFor="text-input">Name</Label>
                     </Col>
                     <Col xs="12" md="9">
-                      <Input type="text" id="text-input" name="text-input" placeholder="Collection Name"
+                      <Input type="text"
+                             id="text-input"
+                             name="text-input"
+                             placeholder="Collection Name"
                              value={collection.name}
                              onChange={ () => this.onChangeCollectionName() }
                       />
@@ -95,17 +98,18 @@ export default class CollectionUpdate extends Component {
                       <Label htmlFor="select">Select Parent Collection</Label>
                     </Col>
                     <Col xs="12" md="9">
-                      <Input type="select" name="select" id="select"
-                             onChange={ () => this.onChangeParentCollection() }
+                      <Input type="select"
+                             name="select"
+                             id="select"
+                             onCh ange={ () => this.onChangeParentCollection() }
                              value={parent_collection}>
                         <option value='0'>Please select</option>
                         {
-                          collections.map((collection, index) => {
-                            if(collection.data.id === this.state.collection_detail.id) {
-                              return(<option key={index} selected value={collection.data.id}>{collection.data.name}</option>);
-                            }
-                            return(<option key={index} value={collection.data.id}>{collection.data.name}</option>);
-                          })
+                          collections.map((collection, index) =>
+                            (collection.data.id === this.state.collection_detail.id)
+                            ? (<option key={index} selected value={collection.data.id}>{collection.data.name}</option>)
+                            : (<option key={index} value={collection.data.id}>{collection.data.name}</option>)
+                          )
                         }
                       </Input>
                     </Col>

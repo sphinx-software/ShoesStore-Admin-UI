@@ -1,28 +1,35 @@
-import React, { Component } from 'react';
+import React, { Component }                            from 'react';
 import { Card, CardBody, CardHeader, Col, Row, Table } from 'reactstrap';
 
-class User extends Component {
+export default class User extends Component {
+
   state = {
-    userData:''
-  }
+    userData: ''
+  };
+
 
   async loadUserById(id) {
-    await fetch(process.env.REACT_APP_URL+ process.env.REACT_APP_VERSION+"credentials/"+id)
-      .then(response => response.json())
+    await fetch(process.env.REACT_APP_URL + process.env.REACT_APP_VERSION + "credentials/" + id)
+      .then(res => res.json())
       .then(userData => {
         this.setState({
-          userData:userData
+          userData
         })
       })
+  };
 
-  }
 
   async componentDidMount(context) {
     await this.loadUserById(this.props.match.params.id);
-  }
+  };
+
 
   render() {
-    let userDetails= '';
+
+    const { id } = this.props.match.params;
+
+    let userDetails = '';
+
     if (this.state.userData.data) {
       userDetails = this.state.userData.data;
     }
@@ -33,7 +40,7 @@ class User extends Component {
           <Col lg={6}>
             <Card>
               <CardHeader>
-                <strong><i className="icon-info pr-1"></i>User id: {this.props.match.params.id}</strong>
+                <strong><i className="icon-info pr-1"></i>User id: {id}</strong>
               </CardHeader>
               <CardBody>
                 <Table responsive striped hover>
@@ -52,7 +59,7 @@ class User extends Component {
                   </tr>
                   <tr>
                     <td>Gender</td>
-                    <td><strong>{ (()=>{
+                    <td><strong>{ ( () => {
                       if (userDetails.gender) {
                         return "Male";
                       }
@@ -73,7 +80,7 @@ class User extends Component {
                   </tr>
                   <tr>
                     <td>Account type</td>
-                    <td><strong>{ (()=>{
+                    <td><strong>{ ( () => {
                       if (!userDetails.externalLogin) {
                         return "Normal";
                       }
@@ -90,9 +97,3 @@ class User extends Component {
     )
   }
 }
-
-export default User;
-
-
-
-

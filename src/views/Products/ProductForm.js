@@ -5,21 +5,15 @@ class Image extends Component {
 
   state = {
     url : ''
-  }
+  };
 
 
   render() {
 
-    let style = {
-      width   : 200,
-      height  : 200
-    }
-
-
     const { url } = this.state;
 
     return (
-      <div className={'float-left mt-5 mr-5'} style={style}>
+      <div className={'float-left mt-5 mr-5'} style={{ width: 200, height: 200 }}>
         <img style={{ width:'100%', height:'100%'}} src={url} alt=""/>
         <input type="file" accept="image/x-png,image/gif,image/jpeg" onChange={(event)=>{
           this.setState({
@@ -35,21 +29,30 @@ class Image extends Component {
 export default class ProductForm extends Component {
 
   state = {
-    Variations: [],
+    variations: [],
   };
 
 
   removeVariation(index) {
-    const variations = this.state.Variations;
+    const { variations } = this.state;
     variations.splice(index, 1)
     this.setState({
-      Variations:variations,
-      index:0
+      variations,
+      index: 0
+    })
+  }
+
+  add() {
+    let array = this.state.variations;
+    array.push(this.variations())
+    this.setState({
+      variations: array
     })
   }
 
 
   variations() {
+    const { index } = this.state;
     return (
       <div>
         <label htmlFor="size">Color</label>
@@ -58,15 +61,16 @@ export default class ProductForm extends Component {
         <input id={'color'} name={'color'} type="number"/>
         <label htmlFor="qty">Quantity</label>
         <input type="number" id={'qty'}/>
-        <button onClick={()=>{
-          this.removeVariation(this.state.index)
-        }}>remove</button>
+        <button onClick={ () => this.removeVariation(index) }>remove</button>
       </div>
     )
   }
 
 
   render() {
+
+    const { variations } = this.state;
+
     return(
       <div className={'row form-group '}>
         <div className={'col-md-6'}>
@@ -81,26 +85,19 @@ export default class ProductForm extends Component {
           <p><strong>Description:</strong><textarea  className={'form-control'}/>
           </p>
             {
-              this.state.Variations.map((item, index)=>{
+              variations.map((item, index)=>{
                 return (
-                  <div>
+                  <div key={index}>
                     {item}
                   </div>
                 )
               })
             }
           <div>
-            <button type="button" className="btn btn-primary" onClick={()=>{
-              let array = this.state.Variations;
-              array.push(this.variations())
-              this.setState({
-                Variations:array
-              })
-            }}>+</button>
-
+            <button type="button" className="btn btn-primary" onClick={ () => this.add()}>+</button>
           </div>
         </div>
-        <div className={'col-md-6  '}>
+        <div className={'col-md-6'}>
           <Image/>
           <Image/>
           <Image/>

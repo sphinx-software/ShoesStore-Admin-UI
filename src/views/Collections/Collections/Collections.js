@@ -65,11 +65,6 @@ export default class Collections extends Component {
   }
 
 
-  toggleFade() {
-    this.setState((prevState) => { return { fadeIn: !prevState }});
-  }
-
-
   async getCollections() {
     await axios.get(this.state.url)
       .then(res => this.setState({ collections: res.data.Collections } ));
@@ -86,7 +81,6 @@ export default class Collections extends Component {
     fadeIn[0] = true;
     this.setState({ fadeIn })
   }
-
 
 
   render() {
