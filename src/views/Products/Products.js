@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import { Badge, Card, CardBody, CardFooter, CardHeader, Col, Row, Collapse, Fade } from 'reactstrap';
-import { AppSwitch } from '@coreui/react'
+import { Card, CardBody, CardHeader, Col, Row } from 'reactstrap';
 import {Link} from "react-router-dom";
 
 class Products extends Component {

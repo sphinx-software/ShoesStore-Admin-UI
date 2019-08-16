@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Badge, Card, CardBody, CardFooter, CardHeader, Col, Row } from 'reactstrap';
+import {  Card, CardBody, CardHeader, Col, Row } from 'reactstrap';
 import { AppSwitch } from '@coreui/react'
 import {Link} from "react-router-dom";
 

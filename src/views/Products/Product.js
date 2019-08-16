@@ -1,7 +1,4 @@
 import React, {Component} from 'react';
-import {CardBody, CardHeader, Col, Row, Table} from 'reactstrap';
-import {renderedDive} from "enzyme/src/Utils";
-
 
 class Image extends Component {
   state = {

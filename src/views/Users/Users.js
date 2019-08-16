@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import { Badge, Card, CardBody, CardHeader, Col, Row, Table } from 'reactstrap';
+import { Card, CardBody, CardHeader, Col, Row, Table } from 'reactstrap';
 
 
 async function upDateRole(id, role) {
@@ -64,7 +64,7 @@ class ActionRole  extends Component{
   }
 
   render() {
-    if (this.state.role == "user") {
+    if (this.state.role === "user") {
       return (
         <td className={"btn btn-info"} onClick={()=>{
           this.setState({
@@ -73,7 +73,7 @@ class ActionRole  extends Component{
           this.upDateRole(this.props.profile.id, "admin")
         }}>Appoint</td>
       )
-    }else if (this.state.role == "admin") {
+    }else if (this.state.role === "admin") {
       return (
         <td className={"btn btn-info"} onClick={ ()=>{
           this.setState({
@@ -136,7 +136,6 @@ class UserRow  extends Component{
   render() {
     const profileLink = `/profiles/${this.props.profile.id}`;
     const profile = this.props.profile;
-    const profiles = this.props.profiles;
     console.log(this.props.key)
     return (
       <tr key={this.props.profile.id.toString()}>
