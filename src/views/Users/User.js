@@ -26,8 +26,6 @@ export default class User extends Component {
 
   render() {
 
-    const { id } = this.props.match.params;
-
     let userDetails = '';
 
     if (this.state.userData.data) {
@@ -40,7 +38,7 @@ export default class User extends Component {
           <Col lg={6}>
             <Card>
               <CardHeader>
-                <strong><i className="icon-info pr-1"></i>User id: {id}</strong>
+                <strong><i className="icon-info pr-1"></i>User id: {this.props.match.params.id}</strong>
               </CardHeader>
               <CardBody>
                 <Table responsive striped hover>
