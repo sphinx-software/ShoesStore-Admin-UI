@@ -1,29 +1,13 @@
-import React, { Component } from 'react';
-import {
-  Card,
-  CardBody,
-  CardHeader,
-  Col,
-  Row,
-  Collapse,
-  Fade,
-  ModalHeader,
-  ModalBody,
-  ModalFooter,
-  Button, Modal
-} from 'reactstrap';
-import { Link } from "react-router-dom";
-import axios from 'axios';
+import React, { Component }                                                                                         from 'react';
+import { Card, CardBody, CardHeader, Col, Row, Collapse, Fade, ModalHeader, ModalBody, ModalFooter, Button, Modal } from 'reactstrap';
+import { Link }                                                                                                     from "react-router-dom";
+import axios                                                                                                        from 'axios';
 
 
-class Collections extends Component {
+export default class Collections extends Component {
+
   constructor(props) {
     super(props);
-
-    this.toggle = this.toggle.bind(this);
-    this.toggleFade = this.toggleFade.bind(this);
-    this.toggleDanger = this.toggleDanger.bind(this);
-    // this.toggleDangerConfirm = this.toggleDangerConfirm.bind(this);
     this.state = {
       modal: false,
       danger: false,
@@ -71,7 +55,6 @@ class Collections extends Component {
   toggleDangerConfirm(index) {
     const fadeIn = this.state.fadeIn;
     fadeIn[index] = false;
-    console.log(fadeIn);
     this.setState({
       danger: !this.state.danger,
       collapse: !this.state.collapse,
@@ -103,8 +86,10 @@ class Collections extends Component {
 
 
   render() {
-    const collections = this.state.collections;
-    // console.log(this.state.fadeIn);
+
+    const { collections, timeout, danger, collapse } = this.state;
+    const { className }                              = this.props;
+
     return (
       <div className="animated fadeIn">
         <Row className="align-items-center">
@@ -125,9 +110,8 @@ class Collections extends Component {
             collections.map((tmpCollection, index) => {
               const collection = tmpCollection.data;
 
-              console.log(this.state.fadeIn);
               return(<Col xs="12" sm="6" md="4" key={index}>
-                <Fade timeout={this.state.timeout} in={this.state.fadeIn[index]}>
+                <Fade timeout={timeout} in={this.state.fadeIn[index]}>
                   <Card>
                     <CardHeader>
                       <div className="btn btn-setting">
@@ -139,16 +123,16 @@ class Collections extends Component {
                           <i className="cui-note icons font-2xl d-block mt-4"></i>
                         </Link>
                         <div className="card-header-action btn btn-setting">
-                          <i id={collection.id} color="danger" onClick={this.toggleDanger} className="cui-trash icons font-2xl d-block mt-4"/>
-                          <Modal isOpen={this.state.danger} toggle={this.toggleDanger}
-                                 className={'modal-danger ' + this.props.className}>
-                            <ModalHeader toggle={this.toggleDanger}>Notice</ModalHeader>
+                          <i id={collection.id} color="danger" onClick={ () => this.toggleDanger() } className="cui-trash icons font-2xl d-block mt-4"/>
+                          <Modal isOpen={danger} toggle={ () => this.toggleDanger() }
+                                 className={'modal-danger ' + className}>
+                            <ModalHeader toggle={ () => this.toggleDanger() }>Notice</ModalHeader>
                             <ModalBody>
                               Remove this collection?
                             </ModalBody>
                             <ModalFooter>
                               <Button color="danger" onClick={(index) => this.toggleDangerConfirm(index)}>Remove</Button>{' '}
-                              <Button color="secondary" onClick={this.toggleDanger}>Cancel</Button>
+                              <Button color="secondary" onClick={ () => this.toggleDanger() }>Cancel</Button>
                             </ModalFooter>
                           </Modal>
                         </div>
@@ -156,7 +140,7 @@ class Collections extends Component {
                     </CardHeader>
 
 
-                    <Collapse isOpen={this.state.collapse} id={collection.id}>
+                    <Collapse isOpen={collapse} id={collection.id}>
                       <CardBody>
                         <p><strong>ID</strong> {collection.id}</p>
                         <p><strong>Parent Collection</strong> {collection.parentId}</p>
@@ -175,5 +159,3 @@ class Collections extends Component {
     );
   }
 }
-
-export default Collections;
