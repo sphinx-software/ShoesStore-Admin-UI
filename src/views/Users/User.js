@@ -59,12 +59,7 @@ export default class User extends Component {
                   </tr>
                   <tr>
                     <td>Gender</td>
-                    <td><strong>{ ( () => {
-                      if (userDetails.gender) {
-                        return "Male";
-                      }
-                      return "Female";
-                    })() }</strong></td>
+                    <td><strong>{ ( () => userDetails.gender ? "Male" : "Famale")() }</strong></td>
                   </tr>
                   <tr>
                     <td>Register date</td>
@@ -80,12 +75,7 @@ export default class User extends Component {
                   </tr>
                   <tr>
                     <td>Account type</td>
-                    <td><strong>{ ( () => {
-                      if (!userDetails.externalLogin) {
-                        return "Normal";
-                      }
-                      return userDetails.externalLogin;
-                    })() }</strong></td>
+                    <td><strong>{ ( () => !userDetails.externalLogin ? "Normal" : userDetails.externalLogin)() }</strong></td>
                   </tr>
                   </tbody>
                 </Table>
