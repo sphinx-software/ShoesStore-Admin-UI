@@ -1,25 +1,28 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
+
 
 class Image extends Component {
+
   state = {
     url: ''
-  };
+  }
+
 
   render() {
+
     let style = {
-      backgroundImage: 'url(' + this.state.url + ')',
-      width: 200 + "px",
-      height: 200 + "px",
-      border: '1px solid',
-      backgroundSize: 'contain',
-      backgroundPosition: 'center',
-      backgroundRepeat: 'no-repeat'
-    };
+      backgroundImage    : 'url(' + this.state.url + ')',
+      width              : 200 + "px",
+      height             : 200 + "px",
+      border             : '1px solid',
+      backgroundSize     : 'contain',
+      backgroundPosition : 'center',
+      backgroundRepeat   : 'no-repeat'
+    }
 
     return (
       <div className={'float-left mt-3 mr-6 justify-content-between'}>
         <div style={style}>
-
         </div>
         <input className={'w-75'} type="file" accept="image/x-png,image/gif,image/jpeg" onChange={(event) => {
           this.setState({
@@ -27,26 +30,25 @@ class Image extends Component {
           })
         }}/>
       </div>
-
     )
   }
 }
 
+
 class RemoveButton extends Component {
+
   render() {
     return (
       <div>
-        <button onClick={() => {
-          this.props.removeVariation();
-        }}>remove
-        </button>
+        <button onClick={ () => this.props.removeVariation() }>remove</button>
       </div>
     )
   }
-
 }
 
+
 class Variations extends Component {
+
   render() {
     return (
       <div className={'d-inline-block'}>
@@ -57,13 +59,14 @@ class Variations extends Component {
         <label htmlFor="qty">Quantity</label>
         <input type="number" id={'qty'}/>
       </div>
-
     )
   }
 
 }
 
-class Product extends Component {
+
+export default class Product extends Component {
+
   state = {
     Variations: [],
   };
@@ -71,11 +74,11 @@ class Product extends Component {
 
   removeVariation(index) {
     const variations = this.state.Variations;
-    variations.splice(index, 1);
+    variations.splice(index, 1)
     this.setState({
       Variations: variations
     })
-  }
+  };
 
   render() {
     return (
@@ -91,7 +94,6 @@ class Product extends Component {
           </p>
           <p><strong>Description:</strong><textarea className={'form-control'}/>
           </p>
-
           {
             this.state.Variations.map((item, index) => {
               return (
@@ -100,11 +102,8 @@ class Product extends Component {
                     <Variations/>
                   </div>
                   <div className={'float-left'}>
-                    <RemoveButton removeVariation={() => {
-                      this.removeVariation(index)
-                    }}/>
+                    <RemoveButton removeVariation={ () => this.removeVariation(index) }/>
                   </div>
-
                 </div>
               )
             })
@@ -112,7 +111,7 @@ class Product extends Component {
           <div>
             <button type="button" className="btn btn-primary" onClick={() => {
               let array = this.state.Variations;
-              array.push(<Variations/>);
+              array.push(<Variations/>)
               this.setState({
                 Variations: array
               })
@@ -132,13 +131,7 @@ class Product extends Component {
         <div className={'btn btn-primary col-md-5 mx-auto mt-5'}>
           Save change
         </div>
-
-
       </div>
     )
   }
-
-
 }
-
-export default Product;

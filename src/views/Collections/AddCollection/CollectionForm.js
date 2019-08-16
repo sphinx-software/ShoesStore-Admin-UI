@@ -1,59 +1,37 @@
-import React, { Component } from 'react';
-import {
-  Button,
-  Card,
-  CardBody,
-  CardFooter,
-  CardHeader,
-  Col,
-  Form,
-  FormGroup,
-  Input,
-  Label,
-  Row,
-  // Nav,NavItem, NavLink, UncontrolledDropdown,DropdownToggle, DropdownMenu, DropdownItem
-} from 'reactstrap';
-import {
-  withRouter
-} from 'react-router-dom';
-import axios from 'axios';
-import slug from 'slug';
+import React, { Component }                                                                        from 'react';
+import { Button, Card, CardBody, CardFooter, CardHeader, Col, Form, FormGroup, Input, Label, Row } from 'reactstrap';
+import { withRouter }                                                                              from 'react-router-dom';
+import axios                                                                                       from 'axios';
+import slug                                                                                        from 'slug';
+
 
 class Forms extends Component {
+
   constructor(props) {
     super(props);
-    this.onChangeCollectionName   = this.onChangeCollectionName.bind(this);
-    this.onChangeParentCollection = this.onChangeParentCollection.bind(this);
-    this.onChangeRelatedSlug      = this.onChangeRelatedSlug.bind(this);
-    this.onSubmit                 = this.onSubmit.bind(this);
     this.state = {
-      url: process.env.REACT_APP_API_URL + 'collections/',
-      collections: [],
-      collection_name: '',
-      parent_collection: null,
-      related_slug:''
-
+      url               : process.env.REACT_APP_API_URL + 'collections/',
+      collections       : [],
+      collection_name   : '',
+      parent_collection : null,
+      related_slug      : ''
     };
   }
+
 
   onSubmit(e) {
     e.preventDefault();
     let slugName = slug(this.state.collection_name.toLowerCase());
-    console.log(`The values are ${this.state.collection_name}, ${this.state.parent_collection}, ${this.state.related_slug} ` +  slugName);
-
     let collection = {
-      name: this.state.collection_name,
-      slug: slugName,
-      parent_id: this.state.parent_collection,
-      // related_slug: this.state.related_slug
+      name      : this.state.collection_name,
+      slug      : slugName,
+      parent_id : this.state.parent_collection,
     };
+
     axios.post(this.state.url, collection)
-      .then(function (response) {
-        console.log(response);
-      })
-      .catch(function (error) {
-        console.log(error);
-      });
+      .then((res) => console.log(res))
+      .catch((err) => console.log(err));
+
     this.props.history.push("/collections/add");
   }
 
@@ -63,11 +41,15 @@ class Forms extends Component {
       collection_name: e.target.value
     });
   }
+
+
   onChangeParentCollection(e) {
     this.setState({
       parent_collection: e.target.value
     });
   }
+
+
   onChangeRelatedSlug(e) {
     this.setState({
       related_slug: e.target.value
@@ -80,14 +62,16 @@ class Forms extends Component {
       .then(res => this.setState({ collections: res.data.Collections } ));
   }
 
+
   async componentDidMount() {
     await this.getCollections();
   }
 
 
-
   render() {
-    let collections = this.state.collections;
+
+    const { collections, collection_name, parent_collection, related_slug } = this.state;
+
     return (
       <div className="animated fadeIn">
         <Row>
@@ -97,15 +81,15 @@ class Forms extends Component {
                 <strong>Add New Collection</strong>
               </CardHeader>
               <CardBody>
-                <Form onSubmit={this.onSubmit} className="form-horizontal">
+                <Form onSubmit={ () => this.onSubmit() } className="form-horizontal">
                   <FormGroup row>
                     <Col md="3">
                       <Label htmlFor="text-input">Name</Label>
                     </Col>
                     <Col xs="12" md="9">
                       <Input type="text" id="text-input" name="text-input" placeholder="Collection Name"
-                             value={this.state.collection_name}
-                             onChange={this.onChangeCollectionName}
+                             value={collection_name}
+                             onChange={ () => this.onChangeCollectionName() }
                       />
                     </Col>
                   </FormGroup>
@@ -115,8 +99,8 @@ class Forms extends Component {
                     </Col>
                     <Col xs="12" md="9">
                       <Input type="select" name="select" id="select"
-                             onChange={this.onChangeParentCollection}
-                             value={this.state.parent_collection}>
+                             onChange={ () => this.onChangeParentCollection() }
+                             value={parent_collection}>
                         <option>Please select</option>
                         {
                           collections.map((collection, index) => {
@@ -132,8 +116,8 @@ class Forms extends Component {
                     </Col>
                     <Col xs="12" md="9">
                       <Input type="text" id="text-input" name="text-input" placeholder="List of Related Slug"
-                             value={this.state.related_slug}
-                             onChange={this.onChangeRelatedSlug}
+                             value={related_slug}
+                             onChange={ () => this.onChangeRelatedSlug() }
                       />
                     </Col>
                   </FormGroup>
