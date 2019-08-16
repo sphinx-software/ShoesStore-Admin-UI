@@ -9,16 +9,19 @@ class Image extends Component {
   };
 
 
+  onChange(e) {
+    this.setState({
+      url: URL.createObjectURL(e.target.files[0])
+    })
+  };
+
+
   render() {
     return (
       <div className={'float-left mt-3 mr-6 justify-content-between'}>
         <div className="product" style={{ backgroundImage: 'url(' + this.state.url + ')' }}>
         </div>
-        <input className={'w-75'} type="file" accept="image/x-png,image/gif,image/jpeg" onChange={(event) => {
-          this.setState({
-            url: URL.createObjectURL(event.target.files[0])
-          })
-        }}/>
+        <input className={'w-75'} type="file" accept="image/x-png,image/gif,image/jpeg" onChange={ (e) => this.onChange(e) }/>
       </div>
     )
   }

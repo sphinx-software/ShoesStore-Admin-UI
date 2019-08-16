@@ -42,12 +42,11 @@ export default class ProductForm extends Component {
     })
   }
 
+
   add() {
-    let array = this.state.variations;
-    array.push(this.variations())
-    this.setState({
-      variations: array
-    })
+    const { variations } = this.state;
+    variations.push(this.variations())
+    this.setState({ variations })
   }
 
 
@@ -94,7 +93,7 @@ export default class ProductForm extends Component {
               })
             }
           <div>
-            <button type="button" className="btn btn-primary" onClick={ () => this.add()}>+</button>
+            <button type="button" className="btn btn-primary" onClick={ () => this.add() }>+</button>
           </div>
         </div>
         <div className={'col-md-6'}>

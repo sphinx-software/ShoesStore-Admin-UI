@@ -85,8 +85,8 @@ export default class Collections extends Component {
 
   render() {
 
-    const { collections, timeout, danger, collapse } = this.state;
-    const { className }                              = this.props;
+    const { collections, timeout, danger, collapse, fadeIn } = this.state;
+    const { className }                                      = this.props;
 
     return (
       <div className="animated fadeIn">
@@ -109,7 +109,7 @@ export default class Collections extends Component {
               const collection = tmpCollection.data;
 
               return(<Col xs="12" sm="6" md="4" key={index}>
-                <Fade timeout={timeout} in={this.state.fadeIn[index]}>
+                <Fade timeout={timeout} in={fadeIn[index]}>
                   <Card>
                     <CardHeader>
                       <div className="btn btn-setting">

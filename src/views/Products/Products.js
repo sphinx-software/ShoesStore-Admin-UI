@@ -12,12 +12,12 @@ export default class Products extends Component {
       fadeIn    : true,
       timeout   : 300
     };
-  }
+  };
 
 
   toggle() {
     this.setState({ collapse: !this.state.collapse });
-  }
+  };
 
 
   render() {
