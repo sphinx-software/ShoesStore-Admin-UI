@@ -1,52 +1,41 @@
-import React, { Component } from 'react';
-import {
-  Button,
-  Card,
-  CardBody,
-  CardFooter,
-  CardHeader,
-  Col,
-  Form,
-  FormGroup,
-  Input,
-  Label,
-  Row,
-} from 'reactstrap';
+import React, { Component }                                                                        from 'react';
+import { Button, Card, CardBody, CardFooter, CardHeader, Col, Form, FormGroup, Input, Label, Row } from 'reactstrap';
 
 
-class CollectionUpdate extends Component {
+export default class CollectionUpdate extends Component {
+
   constructor(props) {
     super(props);
-    this.onChangeCollectionName   = this.onChangeCollectionName.bind(this);
-    this.onChangeParentCollection = this.onChangeParentCollection.bind(this);
-    this.onChangeRelatedSlug      = this.onChangeRelatedSlug.bind(this);
-    this.onSubmit                 = this.onSubmit.bind(this);
     this.state = {
-      url: process.env.REACT_APP_API_URL + 'collections/',
-      collections: [],
-      collection_name: '',
-      parent_collection: '',
-      related_slug:'',
-      collection_detail:''
-
+      url               : process.env.REACT_APP_API_URL + 'collections/',
+      collections       : [],
+      collection_name   : '',
+      parent_collection : '',
+      related_slug      : '',
+      collection_detail : ''
     };
   }
 
+
   onSubmit(e) {
     e.preventDefault();
-    console.log(`The values are ${this.state.collection_name}, ${this.state.parent_collection}, ${this.state.related_slug}`);
   }
+
 
   onChangeCollectionName(e) {
     this.setState({
       collection_name: e.target.value
     });
   }
+
+
   onChangeParentCollection(e) {
     this.setState({
       parent_collection: e.target.value
     });
   }
+
+
   onChangeRelatedSlug(e) {
     this.setState({
       related_slug: e.target.value
@@ -66,19 +55,20 @@ class CollectionUpdate extends Component {
     this.getCollectionDetail();
   }
 
+
   getCollectionDetail() {
     const collection_detail = this.state.collections.find(collection => collection.data.id.toString() === this.props.match.params.id).data;
     this.setState({
       collection_detail
     })
-
   }
 
 
   render() {
-    const collections = this.state.collections;
-    const collection = this.state.collection_detail;
-    console.log(collection.name);
+
+    const collection                                       = this.state.collection_detail;
+    const { collections, parent_collection, related_slug } = this.state;
+
     return (
       <div className="animated fadeIn">
         <Row>
@@ -88,7 +78,7 @@ class CollectionUpdate extends Component {
                 <strong>Update Collection</strong>
               </CardHeader>
               <CardBody>
-                <Form onSubmit={this.onSubmit} className="form-horizontal">
+                <Form onSubmit={ () => this.onSubmit() } className="form-horizontal">
                   <FormGroup row>
                     <Col md="3">
                       <Label htmlFor="text-input">Name</Label>
@@ -96,7 +86,7 @@ class CollectionUpdate extends Component {
                     <Col xs="12" md="9">
                       <Input type="text" id="text-input" name="text-input" placeholder="Collection Name"
                              value={collection.name}
-                             onChange={this.onChangeCollectionName}
+                             onChange={ () => this.onChangeCollectionName() }
                       />
                     </Col>
                   </FormGroup>
@@ -106,8 +96,8 @@ class CollectionUpdate extends Component {
                     </Col>
                     <Col xs="12" md="9">
                       <Input type="select" name="select" id="select"
-                             onChange={this.onChangeParentCollection}
-                             value={this.state.parent_collection}>
+                             onChange={ () => this.onChangeParentCollection() }
+                             value={parent_collection}>
                         <option value='0'>Please select</option>
                         {
                           collections.map((collection, index) => {
@@ -126,8 +116,8 @@ class CollectionUpdate extends Component {
                     </Col>
                     <Col xs="12" md="9">
                       <Input type="text" id="text-input" name="text-input" placeholder="List of Related Slug"
-                             value={this.state.related_slug}
-                             onChange={this.onChangeRelatedSlug}
+                             value={related_slug}
+                             onChange={ () => this.onChangeRelatedSlug() }
                       />
                     </Col>
                   </FormGroup>
@@ -144,5 +134,3 @@ class CollectionUpdate extends Component {
     );
   }
 }
-
-export default CollectionUpdate;

@@ -9,13 +9,13 @@ export default class Collections extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      modal: false,
-      danger: false,
-      collapse: true,
-      fadeIn: [],
-      timeout: 300,
-      url: process.env.REACT_APP_API_URL + 'collections/',
-      collections: [
+      modal       : false,
+      danger      : false,
+      collapse    : true,
+      fadeIn      : [],
+      timeout     : 300,
+      url         : process.env.REACT_APP_API_URL + 'collections/',
+      collections : [
         {
           _links: {
             self: {
@@ -36,9 +36,9 @@ export default class Collections extends Component {
           }
         }
       ],
-
     };
   }
+
 
   toggle() {
     this.setState({
@@ -46,30 +46,34 @@ export default class Collections extends Component {
     });
   }
 
+
   toggleDanger() {
     this.setState({
       danger: !this.state.danger
     });
   }
 
+
   toggleDangerConfirm(index) {
-    const fadeIn = this.state.fadeIn;
+    const { fadeIn } = this.state;
     fadeIn[index] = false;
     this.setState({
-      danger: !this.state.danger,
-      collapse: !this.state.collapse,
+      danger    : !this.state.danger,
+      collapse  : !this.state.collapse,
       fadeIn
     });
   }
+
 
   toggleFade() {
     this.setState((prevState) => { return { fadeIn: !prevState }});
   }
 
+
   async getCollections() {
     await axios.get(this.state.url)
       .then(res => this.setState({ collections: res.data.Collections } ));
-    const fadeIn = this.state.fadeIn;
+    const { fadeIn } = this.state;
     for (let i = 0; i < this.state.collections.length; i++) {
       fadeIn[i] = true;
     }
@@ -78,7 +82,7 @@ export default class Collections extends Component {
 
   async componentDidMount() {
     await this.getCollections();
-    const fadeIn = this.state.fadeIn;
+    const { fadeIn } = this.state;
     fadeIn[0] = true;
     this.setState({ fadeIn })
   }
@@ -131,7 +135,7 @@ export default class Collections extends Component {
                               Remove this collection?
                             </ModalBody>
                             <ModalFooter>
-                              <Button color="danger" onClick={(index) => this.toggleDangerConfirm(index)}>Remove</Button>{' '}
+                              <Button color="danger" onClick={ (index) => this.toggleDangerConfirm(index) }>Remove</Button>{' '}
                               <Button color="secondary" onClick={ () => this.toggleDanger() }>Cancel</Button>
                             </ModalFooter>
                           </Modal>

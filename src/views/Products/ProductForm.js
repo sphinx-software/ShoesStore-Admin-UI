@@ -1,48 +1,53 @@
 import React, { Component } from 'react';
 
-class Image extends Component{
-  state={
-    url :''
+
+class Image extends Component {
+
+  state = {
+    url : ''
   }
+
+
   render() {
+
     let style = {
-      // backgroundImage:'url(' + 'https://sm.mashable.com/mashable_sea/photo/default/man-fakes-death-cat-q6u_2z9w.png' + ')',
-      width:200,
-      height:200
+      width   : 200,
+      height  : 200
     }
 
-    return(
+
+    const { url } = this.state;
+
+    return (
       <div className={'float-left mt-5 mr-5'} style={style}>
-        <img style={{
-          width:'100%',
-          height:'100%'
-        }} src={this.state.url} alt=""/>
-
-
-        <input  type="file" accept="image/x-png,image/gif,image/jpeg"  onChange={(event)=>{
+        <img style={{ width:'100%', height:'100%'}} src={url} alt=""/>
+        <input type="file" accept="image/x-png,image/gif,image/jpeg" onChange={(event)=>{
           this.setState({
-            url:URL.createObjectURL(event.target.files[0])
+            url: URL.createObjectURL(event.target.files[0])
           })
-        }} />
+        }}/>
       </div>
     )
   }
 }
 
-class ProductForm extends Component{
+
+export default class ProductForm extends Component {
+
   state = {
-    Variations:[],
-  }
+    Variations: [],
+  };
 
 
   removeVariation(index) {
     const variations = this.state.Variations;
-    variations.splice(index,1)
+    variations.splice(index, 1)
     this.setState({
       Variations:variations,
       index:0
     })
   }
+
 
   variations() {
     return (
@@ -60,6 +65,7 @@ class ProductForm extends Component{
     )
   }
 
+
   render() {
     return(
       <div className={'row form-group '}>
@@ -74,16 +80,15 @@ class ProductForm extends Component{
           </p>
           <p><strong>Description:</strong><textarea  className={'form-control'}/>
           </p>
-
-          {
-            this.state.Variations.map((item, index)=>{
-              return (
-                <div>
-                  {item}
-                </div>
-              )
-            })
-          }
+            {
+              this.state.Variations.map((item, index)=>{
+                return (
+                  <div>
+                    {item}
+                  </div>
+                )
+              })
+            }
           <div>
             <button type="button" className="btn btn-primary" onClick={()=>{
               let array = this.state.Variations;
@@ -108,12 +113,7 @@ class ProductForm extends Component{
         <div className={'btn btn-primary col-md-5 mx-auto'}>
           Save change
         </div>
-
-
       </div>
     )
   }
-
-
 }
-export default ProductForm;

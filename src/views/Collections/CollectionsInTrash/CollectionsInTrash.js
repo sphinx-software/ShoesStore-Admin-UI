@@ -1,29 +1,25 @@
-import React, { Component } from 'react';
+import React, { Component }                                     from 'react';
 import { Card, CardBody, CardHeader, Col, Row, Collapse, Fade } from 'reactstrap';
 
-class Collections extends Component {
+
+export default class Collections extends Component {
+
   constructor(props) {
     super(props);
-
-    this.toggle = this.toggle.bind(this);
-    this.toggleFade = this.toggleFade.bind(this);
     this.state = {
-      collapse: true,
-      fadeIn: true,
-      timeout: 300,
-      url: process.env.REACT_APP_API_URL + 'collections/',
-      collections: [],
-
+      collapse    : true,
+      fadeIn      : true,
+      timeout     : 300,
+      url         : process.env.REACT_APP_API_URL + 'collections/',
+      collections : [],
     };
   }
+
 
   toggle() {
     this.setState({ collapse: !this.state.collapse });
   }
 
-  toggleFade() {
-    this.setState((prevState) => { return { fadeIn: !prevState }});
-  }
 
   async getCollections() {
     await fetch(this.state.url)
@@ -31,13 +27,15 @@ class Collections extends Component {
       .then(res => this.setState({ collections: res.Collections } ));
   }
 
+
   async componentDidMount() {
     await this.getCollections();
   }
 
+
   render() {
-    const collections = this.state.collections;
-    // const collection = collections[0].data;
+
+    const { collections, timeout, fadeIn, collapse } = this.state;
 
     return (
       <div className="animated fadeIn">
@@ -46,14 +44,12 @@ class Collections extends Component {
             collections.map((collection2, index) => {
               const collection = collection2.data;
               return(<Col xs="12" sm="6" md="4" key={index}>
-                <Fade timeout={this.state.timeout} in={this.state.fadeIn}>
+                <Fade timeout={timeout} in={fadeIn}>
                   <Card>
                     <CardHeader>
                       {collection.name}
-
                       <div className="card-header-actions">
                         {/*eslint-disable-next-line*/}
-
                         <div className="card-header-action btn btn-setting">
                           <button className="card-header-action btn-pill btn btn-secondary btn-block btn-sm"
                           >Update</button>
@@ -62,12 +58,12 @@ class Collections extends Component {
                           <button className="card-header-action btn-pill btn btn-secondary btn-block btn-sm">Delete</button>
                         </div>
                         {/*eslint-disable-next-line*/}
-                        <a className="card-header-action btn btn-minimize" data-target="#collapseExample" onClick={this.toggle}><i className="icon-arrow-up"/></a>
+                        <a className="card-header-action btn btn-minimize" data-target="#collapseExample" onClick={ () => this.toggle() }><i className="icon-arrow-up"/></a>
                         {/*eslint-disable-next-line*/}
                         <a className="card-header-action btn btn-close" onClick=''><i className="icon-close"/></a>
                       </div>
                     </CardHeader>
-                    <Collapse isOpen={this.state.collapse} id="collapseExample">
+                    <Collapse isOpen={collapse} id="collapseExample">
                       <CardBody>
                         <p><strong>ID</strong> {collection.id}</p>
                         <p><strong>Parent Collection</strong> {collection.parent_id}</p>
@@ -86,5 +82,3 @@ class Collections extends Component {
     );
   }
 }
-
-export default Collections;
