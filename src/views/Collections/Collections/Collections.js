@@ -116,7 +116,6 @@ export default class Collections extends Component {
                         <strong>{collection.name}</strong>
                       </div>
                       <div className="card-header-actions">
-                        {/*eslint-disable-next-line*/}
                         <Link to={'/collections/edit/' + collection.id} className="card-header-action btn btn-setting">
                           <i className="cui-note icons font-2xl d-block mt-4"></i>
                         </Link>
