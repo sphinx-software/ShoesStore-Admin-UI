@@ -3,7 +3,7 @@ import React, {Component} from 'react';
 class Image extends Component {
   state = {
     url: ''
-  }
+  };
 
   render() {
     let style = {
@@ -14,7 +14,7 @@ class Image extends Component {
       backgroundSize: 'contain',
       backgroundPosition: 'center',
       backgroundRepeat: 'no-repeat'
-    }
+    };
 
     return (
       <div className={'float-left mt-3 mr-6 justify-content-between'}>
@@ -66,12 +66,12 @@ class Variations extends Component {
 class Product extends Component {
   state = {
     Variations: [],
-  }
+  };
 
 
   removeVariation(index) {
     const variations = this.state.Variations;
-    variations.splice(index, 1)
+    variations.splice(index, 1);
     this.setState({
       Variations: variations
     })
@@ -112,7 +112,7 @@ class Product extends Component {
           <div>
             <button type="button" className="btn btn-primary" onClick={() => {
               let array = this.state.Variations;
-              array.push(<Variations/>)
+              array.push(<Variations/>);
               this.setState({
                 Variations: array
               })
