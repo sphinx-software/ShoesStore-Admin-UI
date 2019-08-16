@@ -30,7 +30,7 @@ class RemoveButton extends Component {
   render() {
     return (
       <div>
-        <button onClick={ () => this.props.removeVariation() }>remove</button>
+        <button onClick={ () => this.props.removeVariation() }>Remove</button>
       </div>
     )
   }
@@ -44,14 +44,13 @@ class Variations extends Component {
       <div className={'d-inline-block'}>
         <label htmlFor="size">Color</label>
         <input name={'size'} id={'size'} type="text"/>
-        <label htmlFor="color"> Size</label>
+        <label htmlFor="color">Size</label>
         <input id={'color'} name={'color'} type="number"/>
         <label htmlFor="qty">Quantity</label>
         <input type="number" id={'qty'}/>
       </div>
     )
   }
-
 }
 
 
@@ -62,13 +61,19 @@ export default class Product extends Component {
   };
 
 
+  addVariation() {
+    const { variations } = this.state;
+    variations.push(<Variations/>);
+    this.setState({ variations })
+  };
+
+
   removeVariation(index) {
     const { variations } = this.state;
     variations.splice(index, 1)
-    this.setState({
-      variations
-    })
+    this.setState({ variations })
   };
+
 
   render() {
 
@@ -102,15 +107,9 @@ export default class Product extends Component {
             })
           }
           <div>
-            <button type="button" className="btn btn-primary" onClick={() => {
-              let array = this.state.Variations;
-              array.push(<Variations/>)
-              this.setState({
-                Variations: array
-              })
-            }}>+
+            <button type="button" className="btn btn-primary" onClick={ () => this.addVariation() }>
+               +
             </button>
-
           </div>
         </div>
         <div className={'col-md-6'}>
