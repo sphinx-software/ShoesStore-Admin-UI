@@ -119,7 +119,10 @@ export default class CollectionUpdate extends Component {
                       <Label htmlFor="text-input">Related Slug</Label>
                     </Col>
                     <Col xs="12" md="9">
-                      <Input type="text" id="text-input" name="text-input" placeholder="List of Related Slug"
+                      <Input type="text"
+                             id="text-input"
+                             name="text-input"
+                             placeholder="List of Related Slug"
                              value={related_slug}
                              onChange={ () => this.onChangeRelatedSlug() }
                       />

@@ -13,24 +13,24 @@ export default class Collections extends Component {
       url         : process.env.REACT_APP_API_URL + 'collections/',
       collections : [],
     };
-  }
+  };
 
 
   toggle() {
     this.setState({ collapse: !this.state.collapse });
-  }
+  };
 
 
   async getCollections() {
     await fetch(this.state.url)
       .then(res => res.json())
       .then(res => this.setState({ collections: res.Collections } ));
-  }
+  };
 
 
   async componentDidMount() {
     await this.getCollections();
-  }
+  };
 
 
   render() {
@@ -49,17 +49,13 @@ export default class Collections extends Component {
                     <CardHeader>
                       {collection.name}
                       <div className="card-header-actions">
-                        {/*eslint-disable-next-line*/}
                         <div className="card-header-action btn btn-setting">
-                          <button className="card-header-action btn-pill btn btn-secondary btn-block btn-sm"
-                          >Update</button>
+                          <button className="card-header-action btn-pill btn btn-secondary btn-block btn-sm">Update</button>
                         </div>
                         <div className="card-header-action btn btn-setting">
                           <button className="card-header-action btn-pill btn btn-secondary btn-block btn-sm">Delete</button>
                         </div>
-                        {/*eslint-disable-next-line*/}
                         <a className="card-header-action btn btn-minimize" data-target="#collapseExample" onClick={ () => this.toggle() }><i className="icon-arrow-up"/></a>
-                        {/*eslint-disable-next-line*/}
                         <a className="card-header-action btn btn-close" onClick=''><i className="icon-close"/></a>
                       </div>
                     </CardHeader>

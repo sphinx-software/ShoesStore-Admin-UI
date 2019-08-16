@@ -10,11 +10,11 @@ class Forms extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      url               : process.env.REACT_APP_API_URL + 'collections/',
-      collections       : [],
-      collection_name   : '',
-      parent_collection : null,
-      related_slug      : ''
+        url               : process.env.REACT_APP_API_URL + 'collections/',
+        collections       : [],
+        collection_name   : '',
+        parent_collection : null,
+        related_slug      : ''
     };
   }
 
